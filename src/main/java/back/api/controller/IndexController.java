@@ -49,16 +49,6 @@ public class IndexController {
 		return new ResponseEntity<List<Extrato>>(listExtrato, HttpStatus.OK);
 	}
 	
-	
-	//Tentiva de corrigir retono de data
-	@GetMapping(value = "/todos", produces = "application/json")
-	public ResponseEntity<List<Extrato>> todos () {
-		
-		List<Extrato> listExtrato = (List<Extrato>) extratoRepository.buscaTodos();
-		
-		return new ResponseEntity<List<Extrato>>(listExtrato, HttpStatus.OK);
-	}
-	
 	@GetMapping(value = "/saldo", produces = "application/json")
 	public Long saldo () {
 		
