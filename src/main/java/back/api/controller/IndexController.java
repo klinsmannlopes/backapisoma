@@ -1,6 +1,7 @@
 package back.api.controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,26 @@ public class IndexController {
 		List<Extrato> listExtrato = (List<Extrato>) extratoRepository.findAll();
 		
 		return new ResponseEntity<List<Extrato>>(listExtrato, HttpStatus.OK);
+	}
+	
+	
+	//Tentiva de corrigir retono de data
+	@GetMapping(value = "/todos", produces = "application/json")
+	public ResponseEntity<List<Extrato>> todos () {
+		
+		List<Extrato> listExtrato = (List<Extrato>) extratoRepository.buscaTodos();
+		
+		//Calendar ti = listExtrato.get(0).getData();
+		
+		return new ResponseEntity<List<Extrato>>(listExtrato, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/saldo", produces = "application/json")
+	public Long saldo () {
+		
+		Long listExtrato = extratoRepository.saldo();
+		
+		return listExtrato;
 	}
 	
 }

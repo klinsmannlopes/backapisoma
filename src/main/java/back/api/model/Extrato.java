@@ -1,6 +1,7 @@
 package back.api.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -20,10 +21,8 @@ public class Extrato implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data")
-	private Date date;
+	@DateTimeFormat(pattern="dd/MM/yyyy")
+    private Calendar data;
 	
 	private String operacacao;
 	
@@ -38,12 +37,12 @@ public class Extrato implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getData() {
+		return data.getTime();
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setData(Calendar data) {
+		this.data = data;
 	}
 
 	public String getOperacacao() {
