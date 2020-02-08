@@ -27,7 +27,7 @@ public class Extrato implements Serializable {
 	
 	private String operacacao;
 	
-	private String valor;
+	private Long valor;
 	
 
 	public Long getId() {
@@ -54,11 +54,11 @@ public class Extrato implements Serializable {
 		this.operacacao = operacacao;
 	}
 
-	public String getValor() {
+	public Long getValor() {
 		return valor;
 	}
 
-	public void setValor(String valor) {
+	public void setValor(Long valor) {
 		this.valor = valor;
 	}
 

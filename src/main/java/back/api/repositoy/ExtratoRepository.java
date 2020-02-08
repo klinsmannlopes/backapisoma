@@ -7,5 +7,5 @@ import back.api.model.Extrato;
 
 @Repository
 public interface ExtratoRepository extends CrudRepository<Extrato, Long> {
-
+	
 }
