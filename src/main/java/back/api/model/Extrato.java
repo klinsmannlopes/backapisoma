@@ -2,7 +2,6 @@ package back.api.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +13,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Extrato implements Serializable {
 	
@@ -21,6 +22,7 @@ public class Extrato implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
     private Calendar data;
 	
@@ -37,8 +39,9 @@ public class Extrato implements Serializable {
 		this.id = id;
 	}
 
-	public Date getData() {
-		return data.getTime();
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
+	public Calendar getData() {
+		return data;
 	}
 
 	public void setData(Calendar data) {

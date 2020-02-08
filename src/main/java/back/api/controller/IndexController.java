@@ -56,17 +56,15 @@ public class IndexController {
 		
 		List<Extrato> listExtrato = (List<Extrato>) extratoRepository.buscaTodos();
 		
-		//Calendar ti = listExtrato.get(0).getData();
-		
 		return new ResponseEntity<List<Extrato>>(listExtrato, HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/saldo", produces = "application/json")
 	public Long saldo () {
 		
-		Long listExtrato = extratoRepository.saldo();
+		Long saldo = extratoRepository.saldo();
 		
-		return listExtrato;
+		return saldo;
 	}
 	
 }
