@@ -29,7 +29,7 @@ public class BackapisomaApplication implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-		.allowedMethods("GET")
+		.allowedMethods("*")
 		.allowedOrigins("*");
 	}
 

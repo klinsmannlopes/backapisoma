@@ -24,6 +24,7 @@ public class Extrato implements Serializable {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
     private Calendar data;
 	
 	private String operacacao;
@@ -39,7 +40,7 @@ public class Extrato implements Serializable {
 		this.id = id;
 	}
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd/MM/yyyy")
+	
 	public Calendar getData() {
 		return data;
 	}
